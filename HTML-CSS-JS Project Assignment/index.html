@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>HTML Page - Assignment 01</title>
+  <link rel='stylesheet' href='bootstrap/bootstrap.min.css'> <!-- I'm using a bootstrap front-end framework to make my page move creative -->
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato:300,400,700'><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<body>
+
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-lg-8 col-lg-offset-2">
+
+        <h1>Welcome To My Registration Page!</h1>
+        <br>
+        <p>Please enter your information to complete the registration:</p>
+
+        <form id="contact-form" method="post" action="contact.php" role="form">
+
+        <div class="messages"></div>
+
+        <div class="controls">
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="form_name">Firstname *</label>
+                <input id="form_name" type="text" name="name" class="form-control" placeholder="Please enter your firstname *" required="required" data-error="Firstname is required.">
+                <div class="help-block with-errors"></div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="form_lastname">Lastname *</label>
+                <input id="form_lastname" type="text" name="surname" class="form-control" placeholder="Please enter your lastname *" required="required" data-error="Lastname is required.">
+                <div class="help-block with-errors"></div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="form_email">Email *</label>
+                <input id="form_email" type="email" name="email" class="form-control" placeholder="Please enter your email *" required="required" data-error="Valid email is required.">
+                <div class="help-block with-errors"></div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="form_phone">Phone *</label>
+                <input id="form_phone" type="phone" name="phone" maxlength="10" class="form-control" placeholder="0771731591" required="required" data-error="Valid sri lankan phone number is required.">
+                <div class="help-block with-errors"></div>
+              </div>
+            </div>
+          </div>
+		  <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="form_email">Birthday *</label>
+                <input id="form_email" type="date" name="email" class="form-control" placeholder="Please enter your Birthdate *" required="required" data-error="Birthday is required.">
+                <div class="help-block with-errors"></div>
+              </div>
+            </div>
+          </div>
+		  <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="form_email">Subject *</label>
+                <input id="form_email" type="text" name="subject" class="form-control" placeholder="Please enter your subject *" required="required" data-error="Subject is required.">
+                <div class="help-block with-errors"></div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="form_message">Message *</label>
+                <textarea id="form_message" name="message" class="form-control" placeholder="Message for me *" rows="4" required="required" data-error="Please,leave us a message."></textarea>
+                <div class="help-block with-errors"></div>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <input type="submit" class="btn btn-success btn-send" value="Submit Registration">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <p class="text-muted"><strong>*</strong>Please fill all required fields to submit.</p>
+            </div>
+          </div>
+        </div>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+</body>
+<script src='bootstrap/jquery.min.js'></script><!-- I'm using a jquery cause its easier than javascript -->
+<script src='bootstrap/bootstrap.min.js'></script><!-- Bootstrap JS included -->
+<script src='bootstrap/validator.min.js'></script><!-- Bootstrap validation script included -->
+<!-- 
+Bootstrap validation will do Check whether all fields are empty or not
+Email validation
+ -->
+<script  src="./script.js"></script>
+<script>
+//OPEN -When Clicking 'Submit Registration' Button
+$( ".btn-send" ).click(function() {
+phone_validation_lk();
+});
+//END-
+
+function phone_validation_lk(){//Validating LK Phone Number Funtion
+var response = false;
+var phone = new RegExp("^(?:0|94|\\+94)?(?:(11|21|23|24|25|26|27|31|32|33|34|35|36|37|38|41|45|47|51|52|54|55|57|63|65|66|67|81|912)(0|2|3|4|5|7|9)|7(0|1|2|5|6|7|8)\\d)\\d{6}$"); //Regular expressions to validate lk number
+if($('#form_phone').val().length < 10 && !phone.test($('#form_phone').val())){ 
+  alert('Please Enter Valid Sri Lankan Phone Number!');
+  response = false;
+  }else{
+  response = true;
+  }
+  return response;
+}
+</script>
+</body>
+</html>
